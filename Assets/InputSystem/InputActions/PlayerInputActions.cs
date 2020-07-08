@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputSystem/InputActions/Player.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/InputSystem/InputActions/PlayerInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -8,16 +8,16 @@ using UnityEngine.InputSystem.Utilities;
 
 namespace InputMapping
 {
-    public class @PlayerInput : IInputActionCollection, IDisposable
+    public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @PlayerInput()
+        public @PlayerInputActions()
         {
             asset = InputActionAsset.FromJson(@"{
-    ""name"": ""Player"",
+    ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""PlayerController"",
             ""id"": ""e3966f9e-06a8-461f-821d-17ad4963b018"",
             ""actions"": [
                 {
@@ -100,7 +100,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -111,7 +111,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -122,7 +122,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -133,7 +133,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -144,7 +144,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -155,7 +155,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -166,7 +166,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -177,7 +177,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -188,7 +188,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -199,7 +199,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -210,7 +210,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -221,7 +221,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -232,7 +232,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""ActivateColorShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -243,7 +243,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ActivateColorShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -254,7 +254,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ActivateColorShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -265,7 +265,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ActivateColorShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -276,7 +276,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""ShiftColorLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -287,7 +287,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -298,7 +298,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -309,7 +309,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -320,7 +320,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""ShiftColorRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -331,7 +331,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -342,7 +342,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -353,7 +353,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ShiftColorRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -375,7 +375,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -386,7 +386,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -397,7 +397,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -408,7 +408,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -419,7 +419,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -430,7 +430,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -441,7 +441,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -452,7 +452,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -639,7 +639,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""MapToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -650,7 +650,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MapToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -661,7 +661,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/touchpadButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MapToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -672,7 +672,7 @@ namespace InputMapping
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MapToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -683,7 +683,7 @@ namespace InputMapping
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -694,7 +694,7 @@ namespace InputMapping
                     ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -705,7 +705,7 @@ namespace InputMapping
                     ""path"": ""<SwitchProControllerHID>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -716,7 +716,7 @@ namespace InputMapping
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -737,17 +737,17 @@ namespace InputMapping
         }
     ]
 }");
-            // Player
-            m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-            m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-            m_Player_BasicAttack = m_Player.FindAction("BasicAttack", throwIfNotFound: true);
-            m_Player_ActivateColorShift = m_Player.FindAction("ActivateColorShift", throwIfNotFound: true);
-            m_Player_ShiftColorLeft = m_Player.FindAction("ShiftColorLeft", throwIfNotFound: true);
-            m_Player_ShiftColorRight = m_Player.FindAction("ShiftColorRight", throwIfNotFound: true);
-            m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-            m_Player_MapToggle = m_Player.FindAction("MapToggle", throwIfNotFound: true);
-            m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            // PlayerController
+            m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
+            m_PlayerController_Jump = m_PlayerController.FindAction("Jump", throwIfNotFound: true);
+            m_PlayerController_Dash = m_PlayerController.FindAction("Dash", throwIfNotFound: true);
+            m_PlayerController_BasicAttack = m_PlayerController.FindAction("BasicAttack", throwIfNotFound: true);
+            m_PlayerController_ActivateColorShift = m_PlayerController.FindAction("ActivateColorShift", throwIfNotFound: true);
+            m_PlayerController_ShiftColorLeft = m_PlayerController.FindAction("ShiftColorLeft", throwIfNotFound: true);
+            m_PlayerController_ShiftColorRight = m_PlayerController.FindAction("ShiftColorRight", throwIfNotFound: true);
+            m_PlayerController_Movement = m_PlayerController.FindAction("Movement", throwIfNotFound: true);
+            m_PlayerController_MapToggle = m_PlayerController.FindAction("MapToggle", throwIfNotFound: true);
+            m_PlayerController_Pause = m_PlayerController.FindAction("Pause", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -794,69 +794,69 @@ namespace InputMapping
             asset.Disable();
         }
 
-        // Player
-        private readonly InputActionMap m_Player;
-        private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_Jump;
-        private readonly InputAction m_Player_Dash;
-        private readonly InputAction m_Player_BasicAttack;
-        private readonly InputAction m_Player_ActivateColorShift;
-        private readonly InputAction m_Player_ShiftColorLeft;
-        private readonly InputAction m_Player_ShiftColorRight;
-        private readonly InputAction m_Player_Movement;
-        private readonly InputAction m_Player_MapToggle;
-        private readonly InputAction m_Player_Pause;
-        public struct PlayerActions
+        // PlayerController
+        private readonly InputActionMap m_PlayerController;
+        private IPlayerControllerActions m_PlayerControllerActionsCallbackInterface;
+        private readonly InputAction m_PlayerController_Jump;
+        private readonly InputAction m_PlayerController_Dash;
+        private readonly InputAction m_PlayerController_BasicAttack;
+        private readonly InputAction m_PlayerController_ActivateColorShift;
+        private readonly InputAction m_PlayerController_ShiftColorLeft;
+        private readonly InputAction m_PlayerController_ShiftColorRight;
+        private readonly InputAction m_PlayerController_Movement;
+        private readonly InputAction m_PlayerController_MapToggle;
+        private readonly InputAction m_PlayerController_Pause;
+        public struct PlayerControllerActions
         {
-            private @PlayerInput m_Wrapper;
-            public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Jump => m_Wrapper.m_Player_Jump;
-            public InputAction @Dash => m_Wrapper.m_Player_Dash;
-            public InputAction @BasicAttack => m_Wrapper.m_Player_BasicAttack;
-            public InputAction @ActivateColorShift => m_Wrapper.m_Player_ActivateColorShift;
-            public InputAction @ShiftColorLeft => m_Wrapper.m_Player_ShiftColorLeft;
-            public InputAction @ShiftColorRight => m_Wrapper.m_Player_ShiftColorRight;
-            public InputAction @Movement => m_Wrapper.m_Player_Movement;
-            public InputAction @MapToggle => m_Wrapper.m_Player_MapToggle;
-            public InputAction @Pause => m_Wrapper.m_Player_Pause;
-            public InputActionMap Get() { return m_Wrapper.m_Player; }
+            private @PlayerInputActions m_Wrapper;
+            public PlayerControllerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Jump => m_Wrapper.m_PlayerController_Jump;
+            public InputAction @Dash => m_Wrapper.m_PlayerController_Dash;
+            public InputAction @BasicAttack => m_Wrapper.m_PlayerController_BasicAttack;
+            public InputAction @ActivateColorShift => m_Wrapper.m_PlayerController_ActivateColorShift;
+            public InputAction @ShiftColorLeft => m_Wrapper.m_PlayerController_ShiftColorLeft;
+            public InputAction @ShiftColorRight => m_Wrapper.m_PlayerController_ShiftColorRight;
+            public InputAction @Movement => m_Wrapper.m_PlayerController_Movement;
+            public InputAction @MapToggle => m_Wrapper.m_PlayerController_MapToggle;
+            public InputAction @Pause => m_Wrapper.m_PlayerController_Pause;
+            public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-            public void SetCallbacks(IPlayerActions instance)
+            public static implicit operator InputActionMap(PlayerControllerActions set) { return set.Get(); }
+            public void SetCallbacks(IPlayerControllerActions instance)
             {
-                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+                if (m_Wrapper.m_PlayerControllerActionsCallbackInterface != null)
                 {
-                    @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                    @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                    @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                    @BasicAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
-                    @BasicAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
-                    @BasicAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
-                    @ActivateColorShift.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateColorShift;
-                    @ActivateColorShift.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateColorShift;
-                    @ActivateColorShift.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateColorShift;
-                    @ShiftColorLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorLeft;
-                    @ShiftColorLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorLeft;
-                    @ShiftColorLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorLeft;
-                    @ShiftColorRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorRight;
-                    @ShiftColorRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorRight;
-                    @ShiftColorRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftColorRight;
-                    @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                    @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                    @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                    @MapToggle.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMapToggle;
-                    @MapToggle.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMapToggle;
-                    @MapToggle.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMapToggle;
-                    @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                    @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                    @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                    @Jump.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
+                    @Dash.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDash;
+                    @Dash.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDash;
+                    @Dash.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDash;
+                    @BasicAttack.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnBasicAttack;
+                    @BasicAttack.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnBasicAttack;
+                    @BasicAttack.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnBasicAttack;
+                    @ActivateColorShift.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnActivateColorShift;
+                    @ActivateColorShift.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnActivateColorShift;
+                    @ActivateColorShift.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnActivateColorShift;
+                    @ShiftColorLeft.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorLeft;
+                    @ShiftColorLeft.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorLeft;
+                    @ShiftColorLeft.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorLeft;
+                    @ShiftColorRight.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorRight;
+                    @ShiftColorRight.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorRight;
+                    @ShiftColorRight.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnShiftColorRight;
+                    @Movement.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMovement;
+                    @Movement.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMovement;
+                    @Movement.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMovement;
+                    @MapToggle.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMapToggle;
+                    @MapToggle.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMapToggle;
+                    @MapToggle.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMapToggle;
+                    @Pause.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPause;
+                    @Pause.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPause;
+                    @Pause.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPause;
                 }
-                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+                m_Wrapper.m_PlayerControllerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @Jump.started += instance.OnJump;
@@ -889,7 +889,7 @@ namespace InputMapping
                 }
             }
         }
-        public PlayerActions @Player => new PlayerActions(this);
+        public PlayerControllerActions @PlayerController => new PlayerControllerActions(this);
         private int m_GamepadSchemeIndex = -1;
         public InputControlScheme GamepadScheme
         {
@@ -908,7 +908,7 @@ namespace InputMapping
                 return asset.controlSchemes[m_KeyboardSchemeIndex];
             }
         }
-        public interface IPlayerActions
+        public interface IPlayerControllerActions
         {
             void OnJump(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
