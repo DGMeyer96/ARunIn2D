@@ -70,9 +70,9 @@ namespace InputMapping
                 },
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""c2f7b8b4-467a-41c3-b88a-1f935cc01369"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -140,6 +140,17 @@ namespace InputMapping
                 },
                 {
                     ""name"": """",
+                    ""id"": ""526d2b1f-f692-4b24-84f5-1364078cf430"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6c3430c3-1fd0-4efe-ab28-6d917eae2c46"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -175,6 +186,17 @@ namespace InputMapping
                     ""name"": """",
                     ""id"": ""b0bf0f26-2041-4a0c-ab76-7ec07e2bde40"",
                     ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3881f1bc-8780-4966-8d64-74d3cee3086e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -228,6 +250,17 @@ namespace InputMapping
                 },
                 {
                     ""name"": """",
+                    ""id"": ""25542b5f-0acc-44f4-8ba7-6b7cc34317ee"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BasicAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ea473a48-e33b-4132-8a1a-a4ffce100d84"",
                     ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
@@ -263,6 +296,17 @@ namespace InputMapping
                     ""name"": """",
                     ""id"": ""a1ecd88e-1b23-4ca4-a2fa-a515b65722eb"",
                     ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ActivateColorShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b05277c1-6741-4a7b-8220-18e07f48639e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -316,6 +360,17 @@ namespace InputMapping
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9fc72706-5e03-4ba1-9839-da33876edd68"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShiftColorLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""10443ddc-cf07-45fc-a7aa-6769e3c71723"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -350,7 +405,18 @@ namespace InputMapping
                 {
                     ""name"": """",
                     ""id"": ""88baa81d-f898-47da-898d-304ee0a9071d"",
-                    ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShiftColorRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""551b7abc-f3c2-4496-b0e5-b2cc2c8aa0ea"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -460,7 +526,7 @@ namespace InputMapping
                 {
                     ""name"": ""Left Stick (Switch Pro Controller)"",
                     ""id"": ""0f1c7dc2-c467-4c11-8b10-757ef70f215f"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -526,7 +592,7 @@ namespace InputMapping
                 {
                     ""name"": ""Left Stick (Xbox Controller)"",
                     ""id"": ""395845e4-5f65-473a-949a-58c0a32fe134"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -581,7 +647,7 @@ namespace InputMapping
                 {
                     ""name"": ""Left Stick (PS4 Controller)"",
                     ""id"": ""a1fda853-9cad-485c-9a76-26b92eb7a070"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -626,6 +692,61 @@ namespace InputMapping
                     ""name"": ""right"",
                     ""id"": ""6b9849ef-875c-48c0-9dee-030cef77953b"",
                     ""path"": ""<DualShockGamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick (Gamepad)"",
+                    ""id"": ""6e217013-f74b-4f8b-a4c1-93758deb2079"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""07c8a044-4fea-477c-8397-24f5109a4585"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""886551cc-815b-41b2-ab64-a03e85ae4fd8"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""eb96c0f6-6131-4e28-b044-a603b7fe3131"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2f156aa5-83e2-4cdb-8352-fcc3341002c0"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -679,6 +800,17 @@ namespace InputMapping
                 },
                 {
                     ""name"": """",
+                    ""id"": ""dd2f08a9-0290-4eff-9d98-5c3fed20febf"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MapToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""47d064ff-f177-411e-8900-6e8fa24f4a09"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -714,6 +846,17 @@ namespace InputMapping
                     ""name"": """",
                     ""id"": ""a97a11f3-fa5e-4527-a208-2a26f5688dd1"",
                     ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d38f03e0-ab7c-49c0-be12-ba8eec07081d"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
