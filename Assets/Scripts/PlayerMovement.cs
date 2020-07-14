@@ -13,19 +13,28 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool run = false;
     bool crouch = false;
+    bool left = false;
 
     // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (horizontalMove > 0f)
+        if (Input.GetAxisRaw("Horizontal") < 0.0f)
         {
             run = true;
+            left = true;
+        }
+        else if (Input.GetAxisRaw("Horizontal") > 0.0f)
+        {
+            run = true;
+            left = false;
+        
         }
         else
         {
             run = false;
+            left = false;
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -51,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+
+        if (left == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
 
         animator.SetBool("Run", run);
         animator.SetBool("Jump", jump);
