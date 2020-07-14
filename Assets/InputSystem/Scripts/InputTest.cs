@@ -4,6 +4,7 @@ using UnityEngine;
 using InputMapping;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Switch;
 
 public class InputTest : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class InputTest : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        var allGamepads = Gamepad.all;
+
+        foreach (var gamepad in allGamepads)
+            Debug.Log(gamepad);
     }
 
     /// <summary>
