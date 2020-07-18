@@ -21,11 +21,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.path": {
-<<<<<<< HEAD
-      "version": "2.0.4",
-=======
       "version": "2.0.5",
->>>>>>> origin/Jesse
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -56,21 +52,13 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-<<<<<<< HEAD
-      "version": "3.0.11",
-=======
       "version": "3.0.12",
->>>>>>> origin/Jesse
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
         "com.unity.2d.common": "2.0.2",
-<<<<<<< HEAD
-        "com.unity.2d.path": "2.0.4"
-=======
         "com.unity.2d.path": "2.0.5"
->>>>>>> origin/Jesse
       },
       "url": "https://packages.unity.com"
     },
@@ -80,22 +68,8 @@
       "source": "builtin",
       "dependencies": {}
     },
-<<<<<<< HEAD
-    "com.unity.cinemachine": {
-      "version": "2.5.0",
-=======
-    "com.unity.2d.tilemap.extras": {
-      "version": "file:2d-extras",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.modules.tilemap": "1.0.0",
-        "com.unity.2d.tilemap": "1.0.0"
-      }
-    },
     "com.unity.cinemachine": {
       "version": "2.6.0",
->>>>>>> origin/Jesse
       "depth": 0,
       "source": "registry",
       "dependencies": {},
