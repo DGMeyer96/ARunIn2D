@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed = 1.0f;
     [SerializeField] private float _jumpHeight = 1.0f;
+
+    Rigidbody2D rb;
     PlayerInputActions inputAction;
     CharacterController2D controller;
     Animator animur;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<CharacterController2D>();
         animur = GetComponent<Animator>();
         var allGamepads = Gamepad.all;
@@ -46,16 +49,25 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //CharacterMovement();
         controller.Move(movementInput.x, crouch, jump);
         if (movementInput.x != 0)
         {
             animur.SetBool("Moving", true);
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
+            if (!controller.IsFalling() && !jump && controller.IsGrounded())
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
             animur.SetBool("Moving", false);
         }
 

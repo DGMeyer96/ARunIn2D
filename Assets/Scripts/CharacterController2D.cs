@@ -65,10 +65,7 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
-
-		Debug.Log("velocity: " + m_Rigidbody2D.angularVelocity);
 	}
-
 
 	public void Move(float move, bool crouch, bool jump)
 	{
@@ -143,21 +140,38 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 
-		currentVelocity = m_Rigidbody2D.velocity.y;
-		deltaVelocity = currentVelocity - previousVelocity;	
-		previousVelocity = currentVelocity;
+		//currentVelocity = m_Rigidbody2D.velocity.y;
+		//deltaVelocity = currentVelocity - previousVelocity;	
+		//previousVelocity = currentVelocity;
 
+		/*
 		if (m_Grounded == false)
         {
-			if (deltaVelocity < 0)
+			if (deltaVelocity > 0)
             {
-				m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
+				//Debug.Log("Falling");
+				//m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
 				m_Falling = true;
             }
 			else
             {
 				m_Falling = false;
             }
+        }
+        else
+        {
+			m_Falling = false;
+		}
+		*/
+
+		if(m_Rigidbody2D.velocity.y < -0.1f)
+        {
+			m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
+			m_Falling = true;
+        }
+        else
+        {
+			m_Falling = false;
         }
 	}
 
