@@ -58,6 +58,29 @@ public class PlayerController : MonoBehaviour
         {
             animur.SetBool("Moving", false);
         }
+
+        if (controller.IsFalling() == true)
+        {
+            animur.SetBool("Fall", true);
+            animur.SetBool("Jump", false);
+        }
+
+        if (animur.GetBool("Jump") == false && animur.GetBool("Fall") == false)
+        {
+            if (jump == true && controller.IsGrounded() == true)
+            {
+                animur.SetBool("Jump", true);
+            }
+            else if (controller.IsGrounded() == false)
+            {
+                animur.SetBool("Jump", true);
+            }
+        }
+
+        if (animur.GetBool("Fall") == true && controller.IsGrounded() == true)
+        {
+            animur.SetBool("Fall", false);
+        }
     }
 
     void SetPlayerInputActions()
@@ -85,7 +108,7 @@ public class PlayerController : MonoBehaviour
     void Movement(InputAction.CallbackContext ctx)
     {
         movementInput = ctx.ReadValue<Vector2>();
-        Debug.Log("Movement: " + movementInput);
+        //Debug.Log("Movement: " + movementInput);
     }
 
     /// <summary>
@@ -94,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Jump(InputAction.CallbackContext ctx)
     {
         jump = ctx.ReadValueAsButton();
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         //= ctx.ReadValueAsButton
     }
 
@@ -103,7 +126,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Dash()
     {
-        Debug.Log("Dash");
+        //Debug.Log("Dash");
     }
 
     /// <summary>
@@ -111,7 +134,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void BasicAttack()
     {
-        Debug.Log("BasicAttack");
+        //Debug.Log("BasicAttack");
     }
 
     /// <summary>
@@ -119,7 +142,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void ActivateColorShift()
     {
-        Debug.Log("ActivateColorShift");
+        //Debug.Log("ActivateColorShift");
     }
 
     /// <summary>
@@ -127,7 +150,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void ShiftColorLeft()
     {
-        Debug.Log("ShiftColorLeft");
+        //Debug.Log("ShiftColorLeft");
     }
 
     /// <summary>
@@ -135,7 +158,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void ShiftColorRight()
     {
-        Debug.Log("ShiftColorRight");
+        //Debug.Log("ShiftColorRight");
     }
 
     /// <summary>
@@ -143,7 +166,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void MapToggle()
     {
-        Debug.Log("MapToggle");
+        //Debug.Log("MapToggle");
     }
 
     /// <summary>
@@ -151,7 +174,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Pause()
     {
-        Debug.Log("Pause");
+        //Debug.Log("Pause");
     }
 
     void CharacterMovement()
