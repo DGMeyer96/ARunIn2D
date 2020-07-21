@@ -49,8 +49,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.deltaTime, false, jump);
-        jump = false;
-        /*
+        //Check and play jump particle here
+        
+        
         if (controller.IsGrounded() && movementInput.x == 0.0f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -59,13 +60,25 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        */
+        
+        if(controller.IsGrounded())
+        {
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = 3;
+        }
+
+
+        jump = false;
     }
 
     public void OnLanding()
     {
         animur.SetBool("IsJumping", false);
         animur.SetBool("IsFalling", false);
+        //Need to play land dust particle here
     }
 
     void SetPlayerInputActions()
