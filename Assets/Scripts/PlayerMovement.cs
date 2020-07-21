@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
+    bool input = false;
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         //Check and play jump particle here
         
         
-        if (controller.IsGrounded() && movementInput.x == 0.0f)
+        if (controller.IsGrounded() && movementInput.x == 0.0f && jump == false)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        
+        /*
         if(controller.IsGrounded())
         {
             rb.gravityScale = 0;
@@ -69,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = 3;
         }
-
+        */
 
         jump = false;
     }
