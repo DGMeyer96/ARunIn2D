@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.InputSystem;
+//using InputMapping;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,10 +16,15 @@ public class PlayerMovement : MonoBehaviour
     bool run = false;
     bool crouch = false;
 
+    //PlayerInputActions inputAction;
+    //Vector2 movement;
+
     // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        //movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
 
         if (horizontalMove > 0f)
         {

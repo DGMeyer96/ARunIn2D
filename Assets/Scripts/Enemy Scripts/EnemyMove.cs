@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Tilemaps;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class EnemyMove : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame

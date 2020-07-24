@@ -11,6 +11,8 @@ public class EnemyDetection : MonoBehaviour
     public float timer = 5.0f;
     public Transform startingPoint;
 
+    public EnemyGroundMove enemyMoveG;
+
     [SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 
@@ -35,6 +37,17 @@ public class EnemyDetection : MonoBehaviour
                 timer = 5.0f;
             }
         }
+
+        //if(enemyMoveG.target != null && playerTargeted == true)
+        //{
+        //    timer -= Time.deltaTime;
+        //        if(timer <= 0.0f)
+        //        {
+        //            enemyMoveG.target = startingPoint;
+        //            timer = 5.0f;
+        //        playerTargeted = false;
+        //        }
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +55,17 @@ public class EnemyDetection : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             destSet.target = collision.transform;
+            //enemyMoveG.target = collision.transform;
+            playerTargeted = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            destSet.target = collision.transform;
+            //enemyMoveG.target = collision.transform;
             playerTargeted = true;
         }
     }
