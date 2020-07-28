@@ -140,37 +140,16 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 
-		//currentVelocity = m_Rigidbody2D.velocity.y;
-		//deltaVelocity = currentVelocity - previousVelocity;	
-		//previousVelocity = currentVelocity;
-
-		/*
-		if (m_Grounded == false)
-        {
-			if (deltaVelocity > 0)
-            {
-				//Debug.Log("Falling");
-				//m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
-				m_Falling = true;
-            }
-			else
-            {
-				m_Falling = false;
-            }
-        }
-        else
-        {
-			m_Falling = false;
-		}
-		*/
-
+		//Check if there is a negative velocity
 		if(m_Rigidbody2D.velocity.y < -0.1f)
         {
+			//Player is falling, make them fall faster than they would normally jump
 			m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
 			m_Falling = true;
         }
         else
         {
+			//Player not falling
 			m_Falling = false;
         }
 	}
