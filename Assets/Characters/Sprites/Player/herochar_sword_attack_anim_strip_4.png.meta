@@ -26,6 +26,18 @@ TextureImporter:
   - first:
       213: 1864263324783057972
     second: herochar_sword_attack_anim_strip_4_7
+  - first:
+      213: -1311447798962228870
+    second: herochar_sword_attack_anim_strip_4_0
+  - first:
+      213: -4953731489921557874
+    second: herochar_sword_attack_anim_strip_4_1
+  - first:
+      213: -8767754031277365369
+    second: herochar_sword_attack_anim_strip_4_2
+  - first:
+      213: 5399596393975755794
+    second: herochar_sword_attack_anim_strip_4_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -116,17 +128,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 32
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0d275b3d42b7b70800000000000000
-      internalID: 8897745980501446823
+      spriteID: a717369dc2dcccde0800000000000000
+      internalID: -1311447798962228870
       vertices: []
       indices: 
       edges: []
@@ -135,19 +147,19 @@ TextureImporter:
       name: herochar_sword_attack_anim_strip_4_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 0
-        width: 16
+        width: 32
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f00c633fe9d55d790800000000000000
-      internalID: -7505990266676396017
+      spriteID: e8a1f86b47fc04bb0800000000000000
+      internalID: -4953731489921557874
       vertices: []
       indices: 
       edges: []
@@ -156,19 +168,19 @@ TextureImporter:
       name: herochar_sword_attack_anim_strip_4_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
-        width: 16
+        width: 32
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3303ff74d26740f0800000000000000
-      internalID: -1132828116441169091
+      spriteID: 787a6bf792ea25680800000000000000
+      internalID: -8767754031277365369
       vertices: []
       indices: 
       edges: []
@@ -177,103 +189,19 @@ TextureImporter:
       name: herochar_sword_attack_anim_strip_4_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06a309e1f770f31a0800000000000000
-      internalID: -6827730267515372960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a557e31b35e101e40800000000000000
-      internalID: 5625029279390528858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 934e84f5acb708a60800000000000000
-      internalID: 7674269874151547961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_6
-      rect:
-        serializedVersion: 2
         x: 96
         y: 0
-        width: 16
+        width: 32
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c038de0bc5608450800000000000000
-      internalID: 6088978619006726344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43c9b79dd913fd910800000000000000
-      internalID: 1864263324783057972
+      spriteID: 214b761ef483fea40800000000000000
+      internalID: 5399596393975755794
       vertices: []
       indices: 
       edges: []

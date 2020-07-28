@@ -19,6 +19,13 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	private float currentVelocity;
+	private float previousVelocity = 0.0f;
+	private float deltaVelocity;
+	[SerializeField] private float maxSpeed = 8.0f;
+	[SerializeField] private float fallFactor = 3.0f;
+	private bool m_Falling;
+
 	[Header("Events")]
 	[Space]
 
@@ -59,7 +66,6 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 	}
-
 
 	public void Move(float move, bool crouch, bool jump)
 	{
@@ -105,11 +111,14 @@ public class CharacterController2D : MonoBehaviour
 				}
 			}
 
-			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
+			if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
+            {
+				// Move the character by finding the target velocity
+				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+				// And then smoothing it out and applying it to the character
+				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			}
+			
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
@@ -130,7 +139,30 @@ public class CharacterController2D : MonoBehaviour
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
+
+		//Check if there is a negative velocity
+		if(m_Rigidbody2D.velocity.y < -0.1f)
+        {
+			//Player is falling, make them fall faster than they would normally jump
+			m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
+			m_Falling = true;
+        }
+        else
+        {
+			//Player not falling
+			m_Falling = false;
+        }
 	}
+
+	public bool IsGrounded()
+    {
+		return m_Grounded;
+    }
+
+	public bool IsFalling()
+    {
+		return m_Falling;
+    }
 
 
 	private void Flip()
