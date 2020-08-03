@@ -47,11 +47,12 @@ GameObject:
   - component: {fileID: 6706460172979544586}
   - component: {fileID: 6706460172979544581}
   - component: {fileID: 392052529}
+  - component: {fileID: 7933492593565973736}
   - component: {fileID: 951888065}
   - component: {fileID: 951888074}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,9 +293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f4ff5fdfb91a4989a8a7adbbc2bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 40
-  attackSpeed: 0.333
-  attackRange: {x: 1, y: 1}
+  RunSpeed: 40
+  AttackSpeed: 0.333
+  AttackRange: {x: 1, y: 1}
   DashModifier: 2.5
   DashCooldown: 1
   HitEffect: {fileID: 1569928722481343953, guid: e34cd5042d535c647a1c7192e8dd1bb7,
@@ -307,6 +308,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   AttackPosition: {fileID: 710329217}
+--- !u!114 &7933492593565973736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706460172979544589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2940686404f9d642b9080f3536f58fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 6
+  Damage: 1
 --- !u!60 &951888065
 PolygonCollider2D:
   m_ObjectHideFlags: 0

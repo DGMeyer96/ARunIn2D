@@ -212,6 +212,8 @@ public class PlayerMovement : MonoBehaviour
                 //Check if there is a tag for enemy, can adjust this later to specific enemy types
                 if(damage[i].tag == "Enemy")
                 {
+                    //Damage the anemy, having issue where the enemy can take multiple hits in a single swing, needs fixing
+                    damage[i].GetComponent<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage);
                     //Spawn the hit effect
                     Instantiate(HitEffect, damage[i].transform);
                 }
@@ -219,5 +221,36 @@ public class PlayerMovement : MonoBehaviour
             //Reset the cooldown
             _NextAttack = Time.time + AttackSpeed;
         } 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        //Take damage
+        GetComponent<PlayerStats>().Health -= damage;
+        //Debug player health
+        Debug.Log("Player Health = " + GetComponent<PlayerStats>().Health);
+        
+        if(GetComponent<PlayerStats>().Health <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            //Play the hit animation
+            _Animur.SetTrigger("Hit");
+        }
+    }
+
+    void Death()
+    {
+        //Play the death animation
+        _Animur.SetBool("Death", true);
+        //Disable the player ability to move
+        GetComponent<CharacterController2D>().enabled = false;
+        //Destroy the gameobject once the aniamtion is done playing
+        Destroy(gameObject, 0.7f);
+
+        //Call End Game Screen
+        //This will also hide the player model
     }
 }
