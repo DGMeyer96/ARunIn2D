@@ -16,12 +16,15 @@ public class EnemyGroundMove : MonoBehaviour
     float distanceToPoint = 1;
 
     CreatePath path;
-    int currentWaypoint = 0;
+    int currentWaypoint = 1;
 
     Rigidbody2D rb;
     Animator animator;
 
     SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private float jumpPower = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,16 @@ public class EnemyGroundMove : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
+
+        if (path.GetPath().Count != 0)
+        {
+            FollowPath();
+        }
+    }
+
+
+    void FollowPath()
+    {
         if (path.GetPath().Count != 0)
         {
             if (currentWaypoint < path.GetPath().Count)
@@ -65,17 +78,21 @@ public class EnemyGroundMove : MonoBehaviour
                     
                     rb.AddForce(force);
                 }
+                else if (Vector2.Distance(transform.position, path.GetPath()[currentWaypoint + 1]) <= 3f && path.GetPath()[currentWaypoint + 1].y - path.GetPath()[currentWaypoint].y == 1)
+                {
+                    Debug.Log("Jumping");
+                    Vector2 direction = (path.GetPath()[currentWaypoint] - (Vector2)transform.position).normalized;
+                    Vector2 force = direction * jumpPower;
+                    rb.AddForce(Vector2.up * jumpPower);
+                    currentWaypoint+=3;
+                    Debug.Log(currentWaypoint);
+                }
                 else
                 {
+                    Debug.Log(currentWaypoint);
                     currentWaypoint++;
                 }
             }
         }
-    }
-
-
-    void FollowPath()
-    {
-
     }
 }

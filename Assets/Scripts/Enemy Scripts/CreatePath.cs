@@ -7,18 +7,22 @@ public class CreatePath : MonoBehaviour
     RaycastHit2D hit;
 
     [SerializeField]
-    Vector2 targetDest;
+    Transform targetDest;
 
     [SerializeField]
     Vector2 nextMoveDest;
 
     public float distanceToPoint;
 
-    float timerToBegin = 1f;
+    float timerToBegin = 0.05f;
     bool isPathing = false;
     [SerializeField]
     List<Vector2> pathPoints;
+
+    List<Vector2> bestPath;
     public bool isGoingRight = false;
+
+    IDictionary<Vector2, Vector2> nodeParents = new Dictionary<Vector2, Vector2>();
 
     // Update is called once per frame
     void Update()
@@ -40,52 +44,96 @@ public class CreatePath : MonoBehaviour
             if (hit.transform.gameObject.GetComponent<navPoint>())
             {
                 nextMoveDest = hit.transform.gameObject.GetComponent<navPoint>().navCoordinates;
-                StartPath(hit.transform.gameObject);
+                Vector2 goal = FindShortestPathBFS(hit.transform.gameObject, targetDest.position);
+                Debug.Log(goal);
+                Debug.Log(hit.transform.gameObject.transform.position);
+                StartPath(goal);
             }
 
         }
-        else
+        else if(isGoingRight == false)
         {
             Vector2 start = new Vector2(transform.position.x - 0.51f, transform.position.y - 0.25f);
             hit = Physics2D.Raycast(start, -Vector2.right, 3f);
             if (hit.transform.gameObject.GetComponent<navPoint>())
             {
                 nextMoveDest = hit.transform.gameObject.GetComponent<navPoint>().navCoordinates;
-                StartPath(hit.transform.gameObject);
+                Vector2 goal = FindShortestPathBFS(hit.transform.gameObject, targetDest.position);
+                StartPath(goal);
             }
         }
+        isPathing = true;
     }
 
-    void StartPath(GameObject thisPosition)
+    void StartPath(Vector2 goal)
     {
-        if(isGoingRight == false)
+        if (goal == (Vector2)hit.transform.gameObject.transform.position)
         {
-            GameObject nextPoint = thisPosition.GetComponent<navPoint>().navWalkLinks[0];
-            if (nextPoint.GetComponent<navPoint>())
-                pathPoints.Add(nextPoint.GetComponent<navPoint>().navCoordinates);
-            if(Vector2.Distance(nextPoint.GetComponent<navPoint>().navCoordinates, targetDest) <= 0.25f)
+            Debug.Log("No path found");
+            return;
+        }
+
+        Vector2 curr = goal;
+
+        
+        while (curr != (Vector2)hit.transform.gameObject.transform.localPosition)
+        {
+            pathPoints.Add(curr);
+            curr = nodeParents[curr];
+        }
+        pathPoints.Reverse();
+    }
+
+    Vector2 FindShortestPathBFS(GameObject startPos, Vector2 endPos)
+    {
+        Queue<GameObject> frontier = new Queue<GameObject>();
+        HashSet<GameObject> exploredNodes = new HashSet<GameObject>();
+        frontier.Enqueue(startPos);
+
+        while(frontier.Count != 0)
+        {
+            GameObject currentNode = frontier.Dequeue();
+            if(Vector2.Distance(currentNode.GetComponent<navPoint>().navCoordinates, endPos) <= 0.5f)
             {
-                return;
+                Debug.Log("End found");
+                return currentNode.GetComponent<navPoint>().navCoordinates;
+            }
+
+            if(isGoingRight)
+            {
+                foreach(GameObject node in currentNode.GetComponent<navPoint>().navLinksRight)
+                {
+                    if(!exploredNodes.Contains(node))
+                    {
+                        exploredNodes.Add(node);
+
+                        nodeParents.Add(node.GetComponent<navPoint>().navCoordinates, currentNode.GetComponent<navPoint>().navCoordinates);
+
+                        frontier.Enqueue(node);
+
+                        //Debug.Log("Finding Path Right");
+                    }
+                }
             }
             else
             {
-                StartPath(thisPosition.GetComponent<navPoint>().navWalkLinks[0]);
+                foreach (GameObject node in currentNode.GetComponent<navPoint>().navLinksLeft)
+                {
+                    if (!exploredNodes.Contains(node))
+                    {
+                        exploredNodes.Add(node);
+
+                        nodeParents.Add(node.GetComponent<navPoint>().navCoordinates, currentNode.GetComponent<navPoint>().navCoordinates);
+
+                        frontier.Enqueue(node);
+
+                        //Debug.Log("Finding Path Left");
+                    }
+                }
             }
         }
-        else
-        {
-            GameObject nextPoint = thisPosition.GetComponent<navPoint>().navWalkLinks[1];
-            if (nextPoint.GetComponent<navPoint>())
-                pathPoints.Add(nextPoint.GetComponent<navPoint>().navCoordinates);
-            if (Vector2.Distance(nextPoint.GetComponent<navPoint>().navCoordinates, targetDest) <= 0.25f)
-            {
-                return;
-            }
-            else
-            {
-                StartPath(thisPosition.GetComponent<navPoint>().navWalkLinks[1]);
-            }
-        }
+
+        return startPos.transform.position;
     }
 
     public List<Vector2> GetPath()

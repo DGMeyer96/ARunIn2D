@@ -9,12 +9,9 @@ public class navPoint : MonoBehaviour
     public Vector2 navCoordinates;
     public int platformIndex;
     public navPointType navType = navPointType.none;
-    public GameObject[] navWalkLinks = new GameObject[2];
-    public List<GameObject> navFallLinks;
-    public List<GameObject> navJumpLinks;
 
-    void Awake()
-    {
-        
-    }
+
+    public List<GameObject> navLinksLeft;
+    public List<GameObject> navLinksRight;
+
 }

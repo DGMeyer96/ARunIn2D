@@ -64,6 +64,9 @@ public class InputTest : MonoBehaviour
     {
         inputAction = new PlayerInputActions();
 
+        //inputAction.PlayerController.AnyInput.started += ctx => AnyInputPressed();
+        //inputAction.PlayerController.AnyInput.canceled += ctx => AnyInputReleased();
+        
         inputAction.PlayerController.Movement.performed += ctx => Movement(ctx);
         inputAction.PlayerController.Movement.canceled += ctx => Movement(ctx);
 
@@ -79,6 +82,22 @@ public class InputTest : MonoBehaviour
 
         //inputAction.PlayerController.Jump.canceled += ctx => jumpInput = ctx.ReadValueAsButton();
         // Functions can also be called in ctx
+    }
+
+    /// <summary>
+    /// Used to see if any input is pressed.
+    /// </summary>
+    void AnyInputPressed()
+    {
+        Debug.Log("AnyInputPressed");
+    }
+
+    /// <summary>
+    /// Used to see if any input is released.
+    /// </summary>
+    void AnyInputReleased()
+    {
+        Debug.Log("AnyInputReleased");
     }
 
     /// <summary>
