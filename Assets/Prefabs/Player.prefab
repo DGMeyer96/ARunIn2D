@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 951888074}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,9 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f4ff5fdfb91a4989a8a7adbbc2bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 40
-  attackSpeed: 0.333
-  attackRange: {x: 1, y: 1}
+  RunSpeed: 40
+  AttackSpeed: 0.333
+  AttackRange: {x: 1, y: 1}
   DashModifier: 2.5
   DashCooldown: 1
   HitEffect: {fileID: 1569928722481343953, guid: e34cd5042d535c647a1c7192e8dd1bb7,
