@@ -9,7 +9,12 @@ public class EnemyMovement : MonoBehaviour
 {
     public EnemyType m_EnemyType;
 
-    public AIPath aiPath;
+    public Path aiPath;
+    Seeker seeker;
+    int currentWaypoint = 0;
+    float nextWayPointDist = 0.5f;
+    bool reachedEndOfPath = false;
+
     private Rigidbody2D m_rb;
     private Animator m_anim;
 
@@ -35,18 +40,22 @@ public class EnemyMovement : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_anim = GetComponent<Animator>();
+        seeker = GetComponent<Seeker>();
         GoingRight();
+
+        if(seeker != null)
+            seeker.StartPath(m_rb.position, patrolPoints[currentPatrolPoint].position, OnPathComplete);
     }
 
     // Update is called once per frame
     void Update()
     {
         GoingRight();
-        if(isGoingRight)
+        if(isGoingRight && isMoving)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else
+        else if(!isGoingRight && isMoving)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
@@ -67,15 +76,52 @@ public class EnemyMovement : MonoBehaviour
 
         Vector2 direction = ((Vector2)patrolPoints[currentPatrolPoint].position - (Vector2)transform.position).normalized;
         Vector2 force = direction * m_moveSpeed * Time.deltaTime;
-        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) <= 0.5f)
+        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) <= 0f)
             m_rb.AddForce(Vector2.zero);
         else
             m_rb.AddForce(force);
     }
 
+    void OnPathComplete(Path p)
+    {
+        if(!p.error)
+        {
+            aiPath = p;
+            currentWaypoint = 0;
+        }
+    }
+
     void FlightMove()
     {
+        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) <= .25f)
+        {
+            Debug.Log("Stopping");
+            transform.localScale = new Vector3(1, -1, 1);
+            m_rb.AddForce(Vector3.zero);
+            //transform.localScale = new Vector3(1,-1,1);
+            isMoving = false;
+        }
+        else
+        {
+            if(currentWaypoint >= aiPath.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+            Vector2 direction = ((Vector2)aiPath.vectorPath[currentWaypoint] - m_rb.position).normalized;
+            Vector2 force = direction * m_moveSpeed * Time.deltaTime;
+            float dist = Vector2.Distance(m_rb.position, aiPath.vectorPath[currentWaypoint]);
+            if(dist <= nextWayPointDist)
+            {
+                currentWaypoint++;
+            }
 
+            m_rb.AddForce(force);
+        }
     }
     
     void Patrol()
@@ -83,39 +129,45 @@ public class EnemyMovement : MonoBehaviour
         if (m_EnemyType == EnemyType.ground && isMoving)
         {
             GroundMove();
+            if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) <= 0.5f)
+            {
+                m_rb.AddForce(Vector2.zero);
+                if (currentPatrolPoint == patrolPoints.Length - 1)
+                {
+                    currentPatrolPoint = 0;
+                    isMoving = false;
+                    m_anim.SetBool("Moving", false);
+                }
+                else
+                {
+                    currentPatrolPoint++;
+                    isMoving = false;
+                    m_anim.SetBool("Moving", false);
+                }
+
+            }
+            if (isMoving == false)
+            {
+                idleTimer -= Time.deltaTime;
+                if (idleTimer <= 0)
+                {
+                    idleTimer = 3f;
+                    isMoving = true;
+                }
+                m_rb.AddForce(Vector2.zero);
+            }
         }
         else if (m_EnemyType == EnemyType.flight && isMoving)
         {
-            FlightMove();
-        }
-
-        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) <= 0.5f)
-        {
-            m_rb.AddForce(Vector2.zero);
-            if (currentPatrolPoint == patrolPoints.Length - 1)
+            if (aiPath != null)
             {
-                currentPatrolPoint = 0;
-                isMoving = false;
-                m_anim.SetBool("Moving", false);
+                FlightMove();
             }
             else
-            {
-                currentPatrolPoint++;
-                isMoving = false;
-                m_anim.SetBool("Moving", false);
-            }
+                return;
+        }
 
-        }
-        if (isMoving == false)
-        {
-            idleTimer -= Time.deltaTime;
-            if (idleTimer <= 0)
-            {
-                idleTimer = 3f;
-                isMoving = true;
-            }
-            m_rb.AddForce(Vector2.zero);
-        }
+        
     }
 
     void Attack()
