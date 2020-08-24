@@ -24,7 +24,6 @@ public class PlayerDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Found you bitch");
             m_Move.isAttacking = true;
             m_Move.target = collision.gameObject.transform;
         }

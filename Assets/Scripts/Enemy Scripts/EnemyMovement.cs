@@ -148,14 +148,17 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            float direction = transform.position.x - target.position.x;
-            if (direction > 0)
+            if (target != null)
             {
-                isGoingRight = false;
-            }
-            else if (direction < 0)
-            {
-                isGoingRight = true;
+                float direction = transform.position.x - target.position.x;
+                if (direction > 0)
+                {
+                    isGoingRight = false;
+                }
+                else if (direction < 0)
+                {
+                    isGoingRight = true;
+                }
             }
         }
     }
