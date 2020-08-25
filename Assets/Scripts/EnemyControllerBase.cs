@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class EnemyControllerBase : MonoBehaviour
@@ -9,9 +10,12 @@ public class EnemyControllerBase : MonoBehaviour
 
     Animator _Animur;
 
+    private EnemyColliders enemyBrain;
+
     private void Start()
     {
-        _Animur = GetComponent<Animator>();
+        _Animur = transform.parent.GetComponent<Animator>();
+        enemyBrain = transform.parent.GetComponent<EnemyColliders>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,9 +23,10 @@ public class EnemyControllerBase : MonoBehaviour
         //Check if we touched a player
         if(collision.tag == "Player")
         {
-            Debug.Log("Enemy damaged player!");
+            //Debug.Log("Enemy damaged player!");
+            enemyBrain.recieveTriggerEnter(name, collision, Damage);
             //Problem is they can hit the player multiple times, need I-frames
-            collision.GetComponent<PlayerMovement>().TakeDamage(Damage);
+            //collision.GetComponent<PlayerMovement>().TakeDamage(Damage);
         }
     }
 
@@ -38,17 +43,17 @@ public class EnemyControllerBase : MonoBehaviour
         else
         {
             //Play hit animation
-            _Animur.SetTrigger("Hit");
+            //_Animur.SetTrigger("Hit");
         }
     }
 
     void Death()
     {
-        //Play death animationr 
-        _Animur.SetBool("Death", true);
+        //Play death animation
+        //_Animur.SetBool("Death", true);
         //Disable EnemyAI Controller
 
         //0.5f is the length of the death animation
-        Destroy(gameObject, 0.5f);
+        Destroy(transform.parent.gameObject, 0.5f);
     }
 }

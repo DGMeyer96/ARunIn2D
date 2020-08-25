@@ -213,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
                 if(damage[i].tag == "Enemy")
                 {
                     //Damage the anemy, having issue where the enemy can take multiple hits in a single swing, needs fixing
-                    damage[i].GetComponent<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage);
+                    damage[i].GetComponentInChildren<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage);
                     //Spawn the hit effect
                     Instantiate(HitEffect, damage[i].transform);
                 }
