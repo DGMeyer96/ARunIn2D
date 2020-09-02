@@ -106,7 +106,7 @@ namespace InputMapping
                     ""id"": ""87236e1b-3db3-4e75-85db-c54c0e5c2608"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=1,pressPoint=0.5)""
+                    ""interactions"": ""Hold(duration=0.5,pressPoint=0.5)""
                 }
             ],
             ""bindings"": [
