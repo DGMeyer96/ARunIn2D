@@ -24,6 +24,7 @@ public class CharacterController2D : MonoBehaviour
 	private float deltaVelocity;
 	[SerializeField] private float maxSpeed = 8.0f;
 	[SerializeField] private float fallFactor = 3.0f;
+	[SerializeField] private float lowFallFactor = 2.0f;
 	private bool m_Falling;
 
 	[Header("Events")]
@@ -143,10 +144,18 @@ public class CharacterController2D : MonoBehaviour
 		//Check if there is a negative velocity
 		if(m_Rigidbody2D.velocity.y < -0.1f)
         {
+			Debug.Log("Big Jump");
 			//Player is falling, make them fall faster than they would normally jump
-			m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
+			//m_Rigidbody2D.AddForce(new Vector2(0.0f, -m_JumpForce / fallFactor));
+			m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallFactor - 1) * Time.deltaTime;
 			m_Falling = true;
         }
+		else if(m_Rigidbody2D.velocity.y > 0.0f && !jump)
+        {
+			Debug.Log("Small Jump");
+			m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowFallFactor - 1) * Time.deltaTime;
+			m_Falling = false;
+		}
         else
         {
 			//Player not falling

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float RunSpeed = 40f;
     [SerializeField] private float AttackSpeed = 0.333f;
+    [SerializeField] private float PowerAttackSpeed = 0.75f;
     [SerializeField] private Vector2 AttackRange = new Vector2(1.0f, 1.0f);
     [SerializeField] private float DashModifier = 2.5f;
     [SerializeField] private float DashCooldown = 1.0f;
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     float _NextAttack = 0.0f;
     float _NextDash = 0.0f;
+
+    bool _PowerAttack = false;
 
     private void Awake()
     {
@@ -127,11 +130,17 @@ public class PlayerMovement : MonoBehaviour
         _InputAction.PlayerController.Movement.performed += ctx => Movement(ctx);
         _InputAction.PlayerController.Movement.canceled += ctx => Movement(ctx);
 
-        _InputAction.PlayerController.Jump.started += ctx => Jump(ctx);
+        _InputAction.PlayerController.Jump.performed += ctx => Jump(ctx);
         //_InputAction.PlayerController._Jump.canceled += ctx => _Jump(ctx);
         
         _InputAction.PlayerController.Dash.started += ctx => Dash();
-        _InputAction.PlayerController.BasicAttack.performed += ctx => BasicAttack();
+
+        _InputAction.PlayerController.PowerAttack.started += ctx => ChargeStart();
+        _InputAction.PlayerController.PowerAttack.performed += ctx => ChargeRelease();
+        _InputAction.PlayerController.PowerAttack.canceled += ctx => ChargeCancel();
+
+        //_InputAction.PlayerController.BasicAttack.performed += ctx => Attack();
+
         /*
         _InputAction.PlayerController.ActivateColorShift.started += ctx => ActivateColorShift();
         _InputAction.PlayerController.ShiftColorLeft.started += ctx => ShiftColorLeft();
@@ -196,31 +205,88 @@ public class PlayerMovement : MonoBehaviour
         _Dash = false;
     }
 
-    void BasicAttack()
+    void Attack(bool powerAttack)
     {
         //Check if attack cooldown over, prevents spamming attack
         if(Time.time > _NextAttack)
         {
-            //Play the attack animation
-            _Animur.SetTrigger("Attack");
-
-            //Check if there are any colliders on the Enemy Layer
-            Collider2D[] damage = Physics2D.OverlapBoxAll(AttackPosition.position, AttackRange, EnemyLayer);
-            //Iterate through list of enemies
-            for(int i = 0; i < damage.Length; i++)
+            if(powerAttack)
             {
-                //Check if there is a tag for enemy, can adjust this later to specific enemy types
-                if(damage[i].tag == "Enemy")
+                Debug.Log("Power Attack!");
+                _Animur.SetTrigger("PowerAttack");
+
+                //Check if there are any colliders on the Enemy Layer
+                Collider2D[] damage = Physics2D.OverlapBoxAll(AttackPosition.position, AttackRange, EnemyLayer);
+                //Iterate through list of enemies
+                for (int i = 0; i < damage.Length; i++)
                 {
-                    //Damage the anemy, having issue where the enemy can take multiple hits in a single swing, needs fixing
-                    damage[i].GetComponent<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage);
-                    //Spawn the hit effect
-                    Instantiate(HitEffect, damage[i].transform);
+                    //Check if there is a tag for enemy, can adjust this later to specific enemy types
+                    if (damage[i].tag == "Enemy")
+                    {
+                        //Damage the anemy, having issue where the enemy can take multiple hits in a single swing, needs fixing
+                        damage[i].GetComponent<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage * GetComponent<PlayerStats>().PowerModifier);
+                        //Spawn the hit effect
+                        Instantiate(HitEffect, damage[i].transform);
+                    }
                 }
+                //Reset the cooldown
+                _NextAttack = Time.time + PowerAttackSpeed;
+
+                _PowerAttack = true;
             }
-            //Reset the cooldown
-            _NextAttack = Time.time + AttackSpeed;
+            else
+            {
+                Debug.Log("Basic Attack!");
+
+                //Play the attack animation
+                _Animur.SetTrigger("Attack");
+
+                //Check if there are any colliders on the Enemy Layer
+                Collider2D[] damage = Physics2D.OverlapBoxAll(AttackPosition.position, AttackRange, EnemyLayer);
+                //Iterate through list of enemies
+                for (int i = 0; i < damage.Length; i++)
+                {
+                    //Check if there is a tag for enemy, can adjust this later to specific enemy types
+                    if (damage[i].tag == "Enemy")
+                    {
+                        //Damage the anemy, having issue where the enemy can take multiple hits in a single swing, needs fixing
+                        damage[i].GetComponent<EnemyControllerBase>().TakeDamage(GetComponent<PlayerStats>().Damage);
+                        //Spawn the hit effect
+                        Instantiate(HitEffect, damage[i].transform);
+                    }
+                }
+                //Reset the cooldown
+                _NextAttack = Time.time + AttackSpeed;
+
+                _PowerAttack = false;
+            }
         } 
+    }
+
+    void ChargeStart()
+    {
+        Debug.Log("Charging");
+        //_PowerAttack = true;
+    }
+
+    void ChargeRelease()
+    {
+        Debug.Log("Charge Attack!");
+        Attack(true);
+        //_PowerAttack = true;
+    }
+
+    void ChargeCancel()
+    {
+        Debug.Log("Charge Cancelled");
+        if(!_PowerAttack)
+        {
+            Attack(false);
+        }
+        else
+        {
+            _PowerAttack = false;
+        }
     }
 
     public void TakeDamage(int damage)

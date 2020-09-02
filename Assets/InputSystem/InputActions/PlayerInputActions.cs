@@ -99,6 +99,14 @@ namespace InputMapping
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PowerAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""87236e1b-3db3-4e75-85db-c54c0e5c2608"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1,pressPoint=0.5)""
                 }
             ],
             ""bindings"": [
@@ -1443,6 +1451,61 @@ namespace InputMapping
                     ""action"": ""AnyInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69bc0507-bdf0-4024-b962-390309d31efa"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PowerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9989b986-c07b-4a10-b5b7-daff99bc4c7b"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PowerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d203ef5-69ba-43ed-ba5c-c7aceff92228"",
+                    ""path"": ""<SwitchProControllerHID>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PowerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""609a95ae-3b26-49fe-8304-f8eb2b3197e7"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PowerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7aefae51-e836-4d3f-91e8-6e6f79535d51"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PowerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1472,6 +1535,7 @@ namespace InputMapping
             m_PlayerController_MapToggle = m_PlayerController.FindAction("MapToggle", throwIfNotFound: true);
             m_PlayerController_Pause = m_PlayerController.FindAction("Pause", throwIfNotFound: true);
             m_PlayerController_AnyInput = m_PlayerController.FindAction("AnyInput", throwIfNotFound: true);
+            m_PlayerController_PowerAttack = m_PlayerController.FindAction("PowerAttack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1531,6 +1595,7 @@ namespace InputMapping
         private readonly InputAction m_PlayerController_MapToggle;
         private readonly InputAction m_PlayerController_Pause;
         private readonly InputAction m_PlayerController_AnyInput;
+        private readonly InputAction m_PlayerController_PowerAttack;
         public struct PlayerControllerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -1545,6 +1610,7 @@ namespace InputMapping
             public InputAction @MapToggle => m_Wrapper.m_PlayerController_MapToggle;
             public InputAction @Pause => m_Wrapper.m_PlayerController_Pause;
             public InputAction @AnyInput => m_Wrapper.m_PlayerController_AnyInput;
+            public InputAction @PowerAttack => m_Wrapper.m_PlayerController_PowerAttack;
             public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1584,6 +1650,9 @@ namespace InputMapping
                     @AnyInput.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnAnyInput;
                     @AnyInput.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnAnyInput;
                     @AnyInput.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnAnyInput;
+                    @PowerAttack.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPowerAttack;
+                    @PowerAttack.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPowerAttack;
+                    @PowerAttack.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnPowerAttack;
                 }
                 m_Wrapper.m_PlayerControllerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1618,6 +1687,9 @@ namespace InputMapping
                     @AnyInput.started += instance.OnAnyInput;
                     @AnyInput.performed += instance.OnAnyInput;
                     @AnyInput.canceled += instance.OnAnyInput;
+                    @PowerAttack.started += instance.OnPowerAttack;
+                    @PowerAttack.performed += instance.OnPowerAttack;
+                    @PowerAttack.canceled += instance.OnPowerAttack;
                 }
             }
         }
@@ -1652,6 +1724,7 @@ namespace InputMapping
             void OnMapToggle(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnAnyInput(InputAction.CallbackContext context);
+            void OnPowerAttack(InputAction.CallbackContext context);
         }
     }
 }

@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public int Health = 6;
     public int Damage = 1;
+    public int PowerModifier = 2;
 
     Vector3 PlayerLocation;
 

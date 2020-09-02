@@ -3449,6 +3449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 6504293269107217476, guid: b67e41de9e6e9e241b874d648cdc14db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6504293269107217480, guid: b67e41de9e6e9e241b874d648cdc14db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3543,6 +3548,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6706460172979544581, guid: 56de128aff742084ba0351eeaa6cb461,
+        type: 3}
+      propertyPath: fallFactor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6706460172979544585, guid: 56de128aff742084ba0351eeaa6cb461,
         type: 3}
       propertyPath: m_LocalPosition.x
